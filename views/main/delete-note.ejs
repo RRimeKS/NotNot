@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/header') %>
+<body>
+    <%- include('../partials/navbar') %>
+    <div class="container">
+        <form method="post">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+            <input type="hidden" name="noteId" value="<%= note.id %>">
+            <div class="form-delete-wrapper">
+                <div class="form-contents ">
+                    <h1>"<%= note.title %>" adlı not siliniyor</h1>
+                    <a href="/notes?page=1">Vazgeç</a>
+                    <button class="delete-btn" type="submit">Sil</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

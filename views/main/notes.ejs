@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/header') %>
+<body>
+    <%- include('../partials/navbarWSearchBar') %>
+    <div class="container">
+        <% if (typeof message != "undefined") { %>
+         <h5><%= message.text %></h5>
+        <% } %>
+        <div class="note-cont">
+            <h1>Merhaba <%= name %>,</h1>
+            <% if (!queryKey == "") { %>
+                <a href="/notes?page=1&keyword=">Aramayı İptal Et</a>
+            <% } %>
+            <a href="/create-note">+ Not Oluştur</a>
+        </div>
+        <div class="notes">
+            <% notes.forEach(note => { %>
+                <div class="note">
+                    <a href="/note/<%= note.slug %>-<%= note._id %>"><h2 class="note-title"><%= note.title %></h2></a>
+                     <div class="note-desc"><%= note.description %></div>
+                 </div>
+            <% }) %>
+        </div>
+        <%- include('../partials/pagination') %>
+    </div>
+
+</body>
+
+</html>

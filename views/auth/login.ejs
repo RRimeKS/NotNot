@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/header') %>
+    <body>
+        <%- include('../partials/navbar') %>
+
+        <div class="login-wrapper">
+            <div class="login">
+                <form method="post">
+                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                    <% if (typeof message != "undefined") { %>
+                        <div class="alert alert-<%= message.class %>">
+                            <%= message.text %>                        
+                        </div>
+                    <% } %>
+                    <h1>Giriş Yap</h1>
+                    <div class="login-content">
+                        <label for="email">E-posta</label>
+                        <input type="email" name="email">
+                    </div>
+                    <div class="login-content">
+                        <label for="password">Parola</label>
+                        <input type="password" name="password">
+                    </div>
+                    <div class="login-content">
+                        <a href="/reset-password">Şifremi Unuttum</a>
+                        <a href="/register">Hesap Oluştur</a>
+                    </div>
+                    <div class="login-content">
+                        <button type="submit">Giriş Yap</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </body>
+</html>

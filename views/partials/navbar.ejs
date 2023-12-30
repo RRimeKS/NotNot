@@ -1,0 +1,15 @@
+<nav class="navbar">
+    <div class="nav-left">
+        <a href="/" style="font-size: xx-large;">NotNot</a>
+    </div>
+
+    <div class="nav-right">
+        <% if (isAuth) { %>
+            <a href="/logout">Çıkış</a>
+            <a href="/logout"><%= name %></a>
+            <% } else { %>
+                <a href="/login">Giriş Yap</a>
+                <a href="/register">Kayıt Ol</a>
+        <% } %>
+    </div>
+</nav>

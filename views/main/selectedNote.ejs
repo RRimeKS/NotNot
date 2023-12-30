@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/header') %>
+    <body>
+        <%- include('../partials/navbar') %>
+        <div class="container">
+            <div class="form-wrapper">
+                <div class="form-content">
+                    <label for="title">Başlık</label>
+                    <input type="text" name="title" value="<%= note.title %>" disabled>
+                </div>
+                <div class="form-content">
+                    <label for="description">Açıklama</label>
+                    <input class="inp-desc" type="text" name="description"
+                        value="<%= note.description %>" disabled>
+                </div>
+                <div class="btn">
+                    <a href="/edit/<%= note.slug %>-<%= note._id %>" class="btn-edit">Notu Güncelle</a>
+                    <a href="/delete/<%= note.slug %>-<%= note._id %>" class="btn-delete">Notu Sil</a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

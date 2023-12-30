@@ -1,0 +1,19 @@
+<nav>
+    <ul class="pagination">
+       <% if (noteCount !== 0) { %>
+        <% if (currentPage != 1) { %>
+            <li class="page-item"><a class="page-link" href="<%= path +"?page="+(currentPage-1) %>">Önceki</a></li>
+        <% } %>
+        <% for( let i = 1; i < noteCount + 1; i++ ) { %>
+            <li class="page-item">
+                <a class="page-link <% if (currentPage == i) { %>
+              selected-page
+            <% } %>" href="<%= path + `?page=${i}` %>"><%= i %></a>
+        </li>
+        <% } %>
+        <% if (currentPage !=0 && currentPage !== noteCount   ) { %>
+            <li class="page-item"><a class="page-link" href="<%= path +"?page="+(currentPage+1) %>">Sonraki</a></li>
+        <% } %>
+       <% } %>
+    </ul>
+</nav>

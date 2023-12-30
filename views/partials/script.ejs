@@ -1,0 +1,51 @@
+<script type="text/javascript">
+//AJAX
+const searchInput = document.querySelector('#search');
+const notes = document.querySelector('.notes');
+
+load_data();
+
+function load_data(query = '')
+{
+    const request = new XMLHttpRequest();
+
+    request.open('GET', `/notes?page=1&keyword=${query}`);
+
+    request.onload = () => {
+
+        const results = JSON.parse(request.responseText);
+
+        let html = '';
+
+        if(results.length > 0)
+        {
+            results.forEach(result => {
+                html += `
+                <div class="note">
+                    
+                 </div>
+                `;
+            });
+        }
+        else
+        {
+            html += `
+                No Data Found
+            `;
+        }
+
+        notes.innerHTML = html;
+
+    };
+
+    request.send();
+}
+
+searchInput.addEventListener('input', () => {
+
+const query = searchInput.value;
+
+load_data(query);
+
+});
+</script>
